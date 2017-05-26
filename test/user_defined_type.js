@@ -1,10 +1,11 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it*/
 
 'use strict';
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('user defined type', function () {
   var parser;
@@ -121,3 +122,5 @@ describe('user defined type', function () {
 });
 // could test for: Error: "dateType" is not callable
 // by using an unregistered string or other nonfunction
+
+return module.exports;});

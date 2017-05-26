@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it, beforeEach*/
 
 
@@ -5,7 +6,7 @@
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('sub-commands', function () {
   var parser;
@@ -13,7 +14,7 @@ describe('sub-commands', function () {
   var c1;
   var c2;
 
-  beforeEach(function () {
+  var beforeEach = function () {
     parser = new ArgumentParser({ debug: true });
     var subparsers = parser.addSubparsers({
       title: 'subcommands',
@@ -24,19 +25,22 @@ describe('sub-commands', function () {
     c1.addArgument([ '-b', '--bar' ], {});
     c2 = subparsers.addParser('c2', {});
     c2.addArgument([ '--baz' ], {});
-  });
+  };
 
+  beforeEach();
   it('should store command name', function () {
     args = parser.parseArgs('c1 --foo 5'.split(' '));
     assert.equal(args.subcommand_name, 'c1');
   });
 
+  beforeEach();
   it('should store command arguments', function () {
     args = parser.parseArgs('c1 --foo 5 -b4'.split(' '));
     assert.equal(args.foo, 5);
     assert.equal(args.bar, 4);
   });
 
+  beforeEach();
   it('should have same behavior for alias and original command', function () {
     args = parser.parseArgs('c1 --foo 5 -b4'.split(' '));
     var aliasArgs = parser.parseArgs('co --foo 5 -b4'.split(' '));
@@ -44,6 +48,7 @@ describe('sub-commands', function () {
     assert.equal(args.bar, aliasArgs.bar);
   });
 
+  beforeEach();
   it('should have different behavior for different commands', function () {
     assert.doesNotThrow(function () {
       parser.parseArgs('c1 --foo 5 -b4'.split(' '));
@@ -59,6 +64,7 @@ describe('sub-commands', function () {
     });
   });
 
+  beforeEach();
   it('should drop down with "Invalid choice" error if parse unrecognized command', function () {
     assert.throws(
       function () { parser.parseArgs('command --baz 1'.split(' ')); },
@@ -66,6 +72,7 @@ describe('sub-commands', function () {
     );
   });
 
+  beforeEach();
   it("should drop down with empty args ('too few arguments' error)", function () {
     assert.throws(
       function () { parser.parseArgs([]); },
@@ -73,6 +80,7 @@ describe('sub-commands', function () {
     );
   });
 
+  beforeEach();
   it('should support #setDefaults', function () {
     /*eslint-disable no-undefined*/
     c1.setDefaults({ spam: 1 });
@@ -85,3 +93,5 @@ describe('sub-commands', function () {
     assert.strictEqual(args.spam, undefined);
   });
 });
+
+return module.exports;});

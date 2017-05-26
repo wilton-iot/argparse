@@ -1,12 +1,13 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it*/
 
 'use strict';
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
-var $$ = require('../lib/const');
+var $$ = require('argparse/lib/const');
 
 describe('nargs', function () {
   var parser;
@@ -859,3 +860,5 @@ describe('nargs', function () {
   });
 
 });
+
+return module.exports;});

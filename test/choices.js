@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it*/
 
 
@@ -5,7 +6,7 @@
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('choices', function () {
   var parser;
@@ -68,3 +69,5 @@ describe('choices', function () {
     );
   });
 });
+
+return module.exports;});

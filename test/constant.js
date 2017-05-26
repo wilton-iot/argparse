@@ -1,19 +1,21 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it, beforeEach*/
 
 'use strict';
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('constant actions', function () {
   var parser;
   var args;
 
-  beforeEach(function () {
+  var beforeEach = function () {
     parser = new ArgumentParser({ debug: true });
-  });
+  };
 
+  beforeEach();
   it('storeConst should store constant as given', function () {
     parser.addArgument([ '-a' ], { action: 'storeConst', dest:   'answer',
           help:   'store constant', constant: 42 });
@@ -21,6 +23,7 @@ describe('constant actions', function () {
     assert.equal(args.answer, '42');
   });
 
+  beforeEach();
   it('storeConst should give error if constant not given (or misspelled)', function () {
     assert.throws(
       function () {
@@ -38,6 +41,7 @@ describe('constant actions', function () {
     );
   });
 
+  beforeEach();
   it('appendConst should append constant as given', function () {
     parser.addArgument([ '--str' ], { action: 'appendConst', dest:   'types',
       help:   'append constant "str" to types', constant: 'str' });
@@ -47,6 +51,7 @@ describe('constant actions', function () {
     assert.deepEqual(args.types, [ 'str', 'int' ]);
   });
 
+  beforeEach();
   it('appendConst should give error if constant not given (or misspelled)', function () {
     assert.throws(
       function () {
@@ -57,3 +62,5 @@ describe('constant actions', function () {
     );
   });
 });
+
+return module.exports;});

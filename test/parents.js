@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it, beforeEach*/
 
 
@@ -5,17 +6,18 @@
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('parents', function () {
   var parent_parser;
   var args;
 
-  beforeEach(function () {
+  var beforeEach = function () {
     parent_parser = new ArgumentParser({ debug: true, addHelp: false });
     parent_parser.addArgument([ '--parent' ]);
-  });
+  };
 
+  beforeEach();
   it('should parse args from parents parser', function () {
     var parser = new ArgumentParser({
       parents: [ parent_parser ]
@@ -31,6 +33,7 @@ describe('parents', function () {
     assert.strictEqual(args.parent, null);
   });
 
+  beforeEach();
   it('should throw error if has same args as parent', function () {
     var parser = new ArgumentParser({
       parents: [ parent_parser ]
@@ -42,3 +45,5 @@ describe('parents', function () {
     });
   });
 });
+
+return module.exports;});

@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it*/
 
 
@@ -5,7 +6,7 @@
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('base', function () {
   var parser;
@@ -210,7 +211,7 @@ describe('base', function () {
     parser.addArgument([ '-g', '--goo' ], { defaultValue: 42 });
 
     assert.equal(parser.getDefault('goo'), 42);
-    assert.equal(parser.getDefault('help'), require('../lib/const').SUPPRESS);
+    assert.equal(parser.getDefault('help'), require('argparse/lib/const').SUPPRESS);
   });
 
   it('should handle mixed positional and optional args', function () {
@@ -283,3 +284,5 @@ describe('base', function () {
     assert.equal(args.foo, 'badger');
   });
 });
+
+return module.exports;});

@@ -1,10 +1,11 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it*/
 
 'use strict';
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('positionals', function () {
   var parser;
@@ -91,3 +92,5 @@ describe('positionals', function () {
   });
 
 });
+
+return module.exports;});

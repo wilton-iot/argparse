@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it, beforeEach, before, after*/
 
 'use strict';
@@ -5,7 +6,7 @@
 var assert = require('assert');
 var path    = require('path');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 var orig_cwd   = process.cwd();
 
@@ -70,3 +71,5 @@ describe('from file', function () {
   });
 });
 
+
+return module.exports;});

@@ -1,9 +1,10 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 #!/usr/bin/env node
 
 'use strict';
 
 
-var ArgumentParser  = require('../lib/argparse').ArgumentParser;
+var ArgumentParser  = require('argparse/lib/argparse').ArgumentParser;
 var parser = new ArgumentParser({ description: 'Process some integers.' });
 
 
@@ -33,3 +34,5 @@ parser.addArgument([ '--sum' ], {
 
 var args = parser.parseArgs('--sum 1 2 -1'.split(' '));
 console.log(args.accumulate(args.integers));
+
+return module.exports;});

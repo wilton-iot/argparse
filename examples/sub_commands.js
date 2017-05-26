@@ -1,7 +1,8 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 #!/usr/bin/env node
 'use strict';
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 var parser = new ArgumentParser({
   version: '0.0.1',
   addHelp: true,
@@ -48,3 +49,5 @@ args = parser.parseArgs('co -b 1'.split(' '));
 console.dir(args);
 console.log('-----------');
 parser.parseArgs([ 'c1', '-h' ]);
+
+return module.exports;});

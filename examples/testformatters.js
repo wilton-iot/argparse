@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 'use strict';
 
 var a, group, parser, helptext;
@@ -268,3 +269,5 @@ optional arguments:
   -z [Z1]           z
 */
 
+
+return module.exports;});

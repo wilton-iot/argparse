@@ -1,10 +1,11 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it*/
 'use strict';
 
 var assert = require('assert');
 
 
-var argparse = require('../lib/argparse');
+var argparse = require('argparse/lib/argparse');
 
 describe('formatterClass alternatives', function () {
   var a, group, parser, helptext;
@@ -256,3 +257,5 @@ optional arguments:
 */
   });
 });
+
+return module.exports;});

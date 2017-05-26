@@ -1,7 +1,8 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 #!/usr/bin/env node
 'use strict';
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 var args;
 var parent_parser = new ArgumentParser({ addHelp: false });
@@ -26,3 +27,5 @@ var bar_parser = new ArgumentParser({
 bar_parser.addArgument([ '--bar' ]);
 args = bar_parser.parseArgs([ '--bar', 'YYY' ]);
 console.log(args);
+
+return module.exports;});

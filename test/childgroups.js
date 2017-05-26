@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 /*global describe, it, beforeEach*/
 // ActionContainer _addContainerActions() had errors passing groups from
 // parent to child parser.  This tests for those.
@@ -5,13 +6,13 @@
 
 var assert = require('assert');
 
-var ArgumentParser = require('../lib/argparse').ArgumentParser;
+var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
 
 describe('child group', function () {
   var args;
   var parentParser, group, xgroup, childParser;
 
-  beforeEach(function () {
+  var beforeEach = function () {
     // parent has name group and exclusive group that should be passed to child
     parentParser = new ArgumentParser({ prog: 'PROG', debug: true, addHelp: false });
     parentParser.addArgument([ '--foo' ], { help: 'parent foo' });
@@ -24,8 +25,9 @@ describe('child group', function () {
     xgroup.addArgument([ '--xbar' ], { action: 'storeFalse', help: 'xfoo or xbar, set false' });
     childParser = new ArgumentParser({ parents: [ parentParser ], description: 'child parser', debug: true });
     childParser.addArgument([ '--cbar' ], { help: 'child bar opt arg' });
-  });
+  };
 
+  beforeEach();
   it('compare help parent and child', function () {
     // format helps and compare selected passages
     var phelp = parentParser.formatHelp();
@@ -34,6 +36,7 @@ describe('child group', function () {
     assert(chelp.match(/parent group:/));
   });
 
+  beforeEach();
   it('child should  throw error if an xclusive group member is missing', function () {
     assert.throws(
       function () {
@@ -43,12 +46,14 @@ describe('child group', function () {
     );
   });
 
+  beforeEach();
   it('child accepts an xgroup item and positional arg from parent', function () {
     args = childParser.parseArgs([ '--xbar', 'gbararg' ]);
     assert.equal(args.gbar, 'gbararg');
     assert.equal(args.xbar, false);
   });
 
+  beforeEach();
   it('child throws error if both xclusive options are given', function () {
     assert.throws(
       function () {
@@ -58,3 +63,5 @@ describe('child group', function () {
     );
   });
 });
+
+return module.exports;});
