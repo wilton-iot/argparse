@@ -4,6 +4,9 @@ define(function(){var require = WILTON_requiresync;var module = {exports: {}};va
 // parent to child parser.  This tests for those.
 'use strict';
 
+var test = require('tape-compat');
+var describe = test.describe;
+var it = test.it;
 var assert = require('assert');
 
 var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;

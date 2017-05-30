@@ -3,6 +3,9 @@ define(function(){var require = WILTON_requiresync;var module = {exports: {}};va
 
 'use strict';
 
+var test = require('tape-compat');
+var describe = test.describe;
+var it = test.it;
 var assert = require('assert');
 var path    = require('path');
 
