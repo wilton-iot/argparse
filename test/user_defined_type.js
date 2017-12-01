@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /*global describe, it*/
 
 'use strict';
@@ -126,4 +126,4 @@ describe('user defined type', function () {
 // could test for: Error: "dateType" is not callable
 // by using an unregistered string or other nonfunction
 
-return module.exports;});
+require = requireOrig;});

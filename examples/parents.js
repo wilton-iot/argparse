@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 'use strict';
 
 var ArgumentParser = require('argparse/lib/argparse').ArgumentParser;
@@ -27,4 +27,4 @@ bar_parser.addArgument([ '--bar' ]);
 args = bar_parser.parseArgs([ '--bar', 'YYY' ]);
 console.log(args);
 
-return module.exports;});
+require = requireOrig;});

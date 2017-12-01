@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 /*global describe, it, beforeEach*/
 // ActionContainer _addContainerActions() had errors passing groups from
 // parent to child parser.  This tests for those.
@@ -67,4 +67,4 @@ describe('child group', function () {
   });
 });
 
-return module.exports;});
+require = requireOrig;});
